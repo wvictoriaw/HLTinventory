@@ -21,3 +21,20 @@ st.dataframe(df7, width=1000, height=600)
 refresh_button = st.button("Refresh")
 if refresh_button:
     st.experimental_rerun()
+    
+def download_excel(df7):
+    excel_file = df7.to_excel(index=False)
+    with open("data.xlsx", "wb") as f:
+        f.write(excel_file.getvalue())
+    st.download_button(
+        label="Download Excel File",
+        data=excel_file,
+        file_name='data.xlsx',
+        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    )
+def main():
+    st.title('Download DataFrame as Excel')
+if st.button('Download Excel File'):
+        download_excel(df6)
+if __name__ == '__main__':
+    main()
