@@ -21,3 +21,6 @@ st.dataframe(df7, width=1000, height=600)
 refresh_button = st.button("Refresh")
 if refresh_button:
     st.experimental_rerun()
+if st.button('Export to CSV'):
+    df7.to_csv('exported_data.csv', index=False)
+    st.success('Data exported successfully!')
