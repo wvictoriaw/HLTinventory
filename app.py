@@ -35,6 +35,6 @@ def download_excel(df7):
 def main():
     st.title('Download DataFrame as Excel')
 if st.button('Download Excel File'):
-        download_excel(df6)
+        download_excel(df7)
 if __name__ == '__main__':
     main()
