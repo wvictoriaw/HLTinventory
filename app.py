@@ -26,7 +26,7 @@ if refresh_button:
 def convert_df(df7):
     return df.to_csv().encode('utf-8')
 
-csv = convert_df(df7)
+csv = convert_df(my_large_df7)
 
 st.download_button(
     label="Download data as CSV",
