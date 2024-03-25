@@ -32,6 +32,6 @@ csv = convert_df(df7=df7)
 st.download_button(
     label="Download data as CSV",
     data=csv,
-    file_name='MAinventory.csv',
+    file_name=date.today() + '.csv',
     mime='text/csv',
 )
