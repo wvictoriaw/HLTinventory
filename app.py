@@ -24,7 +24,7 @@ if refresh_button:
     
 def download_excel():
     with pd.ExcelWriter('data.xlsx', engine='xlsxwriter') as writer:
-    df7.to_excel(writer, index=False)
+    df.to_excel(writer, index=False)
     with open('data.xlsx', 'rb') as f:
         data = f.read()
     b64 = base64.b64encode(data).decode('utf-8')
