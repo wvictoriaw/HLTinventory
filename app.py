@@ -21,14 +21,3 @@ st.dataframe(df7, width=1000, height=600)
 refresh_button = st.button("Refresh")
 if refresh_button:
     st.experimental_rerun()
-    
-def download_excel():
-    with pd.ExcelWriter('data.xlsx', engine='xlsxwriter') as writer:
-    df.to_excel(writer, index=False)
-    with open('data.xlsx', 'rb') as f:
-        data = f.read()
-    b64 = base64.b64encode(data).decode('utf-8')
-    href = f'<a href="data:file/xlsx;base64,{b64}" download="data.xlsx">Download Excel File</a>'
-    return href
-def main():
-    st.title('Download Excel File Example')
