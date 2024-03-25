@@ -25,9 +25,9 @@ if refresh_button:
 @st.cache_data
 def convert_df(df7):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
-    return df.to_csv().encode('utf-8')
+    return df7.to_csv().encode('utf-8')
 
-csv = convert_df(my_large_df)
+csv = convert_df(df7=my_large_df)
 
 st.download_button(
     label="Download data as CSV",
