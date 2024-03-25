@@ -21,3 +21,16 @@ st.dataframe(df7, width=1000, height=600)
 refresh_button = st.button("Refresh")
 if refresh_button:
     st.experimental_rerun()
+    
+@st.cache_data
+def convert_df(df7):
+    return df.to_csv().encode('utf-8')
+
+csv = convert_df(df7)
+
+st.download_button(
+    label="Download data as CSV",
+    data=csv,
+    file_name='MAinventory.csv',
+    mime='text/csv',
+)
