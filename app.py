@@ -21,7 +21,7 @@ df5["indiv_qty"] = df5["scan_qty"]*df5["Multiplier"]
 df6 = df5.groupby(["Name"])[["Bulk_or_Indiv", "indiv_qty"]].agg(bulkindiv = ("Bulk_or_Indiv", lambda x:"Indiv"), qty = ("indiv_qty", "sum"))
 
 df7 = df6.rename(columns={'bulkindiv': 'Status', 'qty': 'Product Quantity'})
-
+df7['Product Quantity'] = df7['Product Quantity'].astype("int64")
 st.dataframe(df7, width=1000, height=600)
 
 refresh_button = st.button("Refresh")
